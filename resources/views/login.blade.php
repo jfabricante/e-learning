@@ -67,7 +67,7 @@ License: You must have a valid license purchased only from themeforest(the above
 							<!-- begin::Header -->
 							<div class="m-login__head">
 								<h3 class="m-login__title">
-									Sign In To Admin
+									E-Learning System
 								</h3>
 							</div>
 							<!-- end::Header -->
