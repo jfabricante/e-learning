@@ -38,6 +38,14 @@ License: You must have a valid license purchased only from themeforest(the above
 		<link href="{{ asset('metronic_5.05/assets/demo/default/base/style.bundle.css') }}" rel="stylesheet" type="text/css" />
 		<!--end::Base Styles -->
 		<link rel="shortcut icon" href="{{ asset('metronic_5.05/assets/demo/default/media/img/logo/favicon.ico') }}" />
+
+		{{-- Login Page Style --}}
+		<style type="text/css">
+			.m-login__logo img {
+				width: 50%;
+				margin-top: 5%;
+			}
+		</style>
 	</head>
 	<!-- end::Head -->
 
