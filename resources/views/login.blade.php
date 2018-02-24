@@ -56,7 +56,8 @@ License: You must have a valid license purchased only from themeforest(the above
 						<!-- begin::Logo -->
 						<div class="m-login__logo">
 							<a href="#">
-								<img src="{{ asset('metronic_5.05/assets/app/media/img/logos/logo-1.png') }}">
+								{{-- <img src="{{ asset('metronic_5.05/assets/app/media/img/logos/logo-1.png') }}"> --}}
+								<img src="{{ asset('img/logo.svg') }}">
 							</a>
 						</div>
 						<!-- end::Logo -->
