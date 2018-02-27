@@ -33,9 +33,9 @@ License: You must have a valid license purchased only from themeforest(the above
           });
 		</script>
 		<!--end::Web font -->
-        <!--begin::Base Styles -->
-		<link href="{{ asset('metronic_5.05/assets/vendors/base/vendors.bundle.css') }}" rel="stylesheet" type="text/css" />
-		<link href="{{ asset('metronic_5.05/assets/demo/default/base/style.bundle.css') }}" rel="stylesheet" type="text/css" />
+		<!--begin::Base Styles -->
+		<link href="{{ asset('metronic_5.05/assets/vendors/base/_vendors.bundle.css') }}" rel="stylesheet" type="text/css" />
+		<link href="{{ asset('metronic_5.05/assets/demo/default/base/_style.bundle.css') }}" rel="stylesheet" type="text/css" />
 		<!--end::Base Styles -->
 		<link rel="shortcut icon" href="{{ asset('metronic_5.05/assets/demo/default/media/img/logo/favicon.ico') }}" />
 
@@ -83,7 +83,7 @@ License: You must have a valid license purchased only from themeforest(the above
 							<form class="m-login__form m-form" action="">
 
 								<div class="form-group m-form__group">
-									<input class="form-control m-input"   type="text" placeholder="Email" name="email" autocomplete="off">
+									<input class="form-control m-input" type="text" placeholder="Username" name="username" autocomplete="off">
 								</div>
 
 								<div class="form-group m-form__group">
@@ -159,8 +159,8 @@ License: You must have a valid license purchased only from themeforest(the above
 		</div>
 		<!-- end:: Page -->
 		<!--begin::Base Scripts -->
-		<script src="{{ asset('metronic_5.05/assets/vendors/base/vendors.bundle.js') }}" type="text/javascript"></script>
-		<script src="{{ asset('metronic_5.05/assets/demo/default/base/scripts.bundle.js') }}" type="text/javascript"></script>
+		<script src="{{ asset('metronic_5.05/assets/vendors/base/_vendors.bundle.js') }}" type="text/javascript"></script>
+		<script src="{{ asset('metronic_5.05/assets/demo/default/base/_scripts.bundle.js') }}" type="text/javascript"></script>
 		<!--end::Base Scripts -->   
 		<!--begin::Page Snippets -->
 		<script src="{{ asset('metronic_5.05/assets/snippets/pages/user/login.js') }}" type="text/javascript"></script>
