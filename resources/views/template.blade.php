@@ -18,7 +18,7 @@ License: You must have a valid license purchased only from themeforest(the above
 		<meta charset="utf-8" />
 		<title>
 			@section('title')
-				Metronic | Dashboard
+				E-Learning System
 			@show
 		</title>
 
@@ -40,10 +40,10 @@ License: You must have a valid license purchased only from themeforest(the above
 		@section('styles')
 			<!--begin::Base Styles -->  
 			<!--begin::Page Vendors -->
-			<link href="{{ asset('metronic_5.05/assets/vendors/custom/fullcalendar/fullcalendar.bundle.css') }}" rel="stylesheet" type="text/css" />
+			{{-- <link href="{{ asset('metronic_5.05/assets/vendors/custom/fullcalendar/fullcalendar.bundle.css') }}" rel="stylesheet" type="text/css" /> --}}
 			<!--end::Page Vendors -->
-			<link href="{{ asset('metronic_5.05/assets/vendors/base/vendors.bundle.css') }}" rel="stylesheet" type="text/css" />
-			<link href="{{ asset('metronic_5.05/assets/demo/default/base/style.bundle.css') }}" rel="stylesheet" type="text/css" />
+			<link href="{{ asset('metronic_5.05/assets/vendors/base/_vendors.bundle.css') }}" rel="stylesheet" type="text/css" />
+			<link href="{{ asset('metronic_5.05/assets/demo/default/base/_style.bundle.css') }}" rel="stylesheet" type="text/css" />
 			<!--end::Base Styles -->
 			<link rel="shortcut icon" href="{{ asset('metronic_5.05/assets/demo/default/media/img/logo/favicon.ico') }}" />
 
@@ -73,7 +73,7 @@ License: You must have a valid license purchased only from themeforest(the above
 				<!-- begin: Wrapper -->
 				<div class="m-grid__item m-grid__item--fluid m-wrapper">
 					<!-- BEGIN: Subheader -->
-					@include('partials/_subheader')
+					{{-- @include('partials/_subheader') --}}
 					<!-- END: Subheader -->
 
 					<!-- begin: Content-->
@@ -106,14 +106,14 @@ License: You must have a valid license purchased only from themeforest(the above
 
 		@section('scripts')
 			<!--begin::Base Scripts -->
-			<script src="{{ asset('metronic_5.05/assets/vendors/base/vendors.bundle.js') }}" type="text/javascript"></script>
-			<script src="{{ asset('metronic_5.05/assets/demo/default/base/scripts.bundle.js') }}" type="text/javascript"></script>
+			<script src="{{ asset('metronic_5.05/assets/vendors/base/_vendors.bundle.js') }}" type="text/javascript"></script>
+			<script src="{{ asset('metronic_5.05/assets/demo/default/base/_scripts.bundle.js') }}" type="text/javascript"></script>
 			<!--end::Base Scripts -->   
 			<!--begin::Page Vendors -->
-			<script src="{{ asset('metronic_5.05/assets/vendors/custom/fullcalendar/fullcalendar.bundle.js') }}" type="text/javascript"></script>
+			{{-- <script src="{{ asset('metronic_5.05/assets/vendors/custom/fullcalendar/fullcalendar.bundle.js') }}" type="text/javascript"></script> --}}
 			<!--end::Page Vendors -->  
 			<!--begin::Page Snippets -->
-			<script src="{{ asset('metronic_5.05/assets/app/js/dashboard.js') }}" type="text/javascript"></script>
+			{{-- <script src="{{ asset('metronic_5.05/assets/app/js/dashboard.js') }}" type="text/javascript"></script> --}}
 			<!--end::Page Snippets -->
 		@show
 	</body>
