@@ -1,10 +1,5 @@
 @extends('template')
 
-@section('styles')
-	<link href="{{ asset('metronic_5.05/assets/vendors/base/vendors.bundle.css') }}" rel="stylesheet" type="text/css" />
-	<link href="{{ asset('metronic_5.05/assets/demo/default/base/style.bundle.css') }}" rel="stylesheet" type="text/css" />
-@endsection
-
 @section('aside-left')
 	<li class="m-menu__item m-menu__item--active" aria-haspopup="true" >
 		<a href="index.html" class="m-menu__link ">

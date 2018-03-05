@@ -170,5 +170,33 @@
 
 @section('scripts')
 	@parent
-	<script src="{{ asset('metronic_5.05/assets/demo/default/custom/components/datatables/base/html-table.js') }}" type="text/javascript"></script>
+
+	<script type="text/javascript">
+		var DatatableData = function() {
+
+			var init = function() {
+				var datatable = $('.m-datatable').mDatatable({
+					date: {
+						saveState: {cookie: false},
+					},
+					search: {
+						input: $('#generalSearch'),
+					},
+					columns: [
+
+					],
+				});
+			};
+			
+			return {
+				getInstance: function() {
+					init();
+				},
+			};
+		}();
+
+		$(document).ready(function() {
+			DatatableData.getInstance();
+		});
+	</script>
 @endsection
