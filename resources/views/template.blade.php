@@ -42,10 +42,10 @@ License: You must have a valid license purchased only from themeforest(the above
 			<!--begin::Page Vendors -->
 			{{-- <link href="{{ asset('metronic_5.05/assets/vendors/custom/fullcalendar/fullcalendar.bundle.css') }}" rel="stylesheet" type="text/css" /> --}}
 			<!--end::Page Vendors -->
-			<link href="{{ asset('metronic_5.05/assets/vendors/base/_vendors.bundle.css') }}" rel="stylesheet" type="text/css" />
-			<link href="{{ asset('metronic_5.05/assets/demo/default/base/_style.bundle.css') }}" rel="stylesheet" type="text/css" />
+			<link href="{{ asset('metronic_v5.1.1/assets/vendors/base/vendors.bundle.css') }}" rel="stylesheet" type="text/css" />
+			<link href="{{ asset('metronic_v5.1.1/assets/demo/default/base/style.bundle.css') }}" rel="stylesheet" type="text/css" />
 			<!--end::Base Styles -->
-			<link rel="shortcut icon" href="{{ asset('metronic_5.05/assets/demo/default/media/img/logo/favicon.ico') }}" />
+			<link rel="shortcut icon" href="{{ asset('metronic_v5.1.1/assets/demo/default/media/img/logo/favicon.ico') }}" />
 
 			<!-- begin:: Custom Style -->
 			<link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" />
@@ -106,15 +106,9 @@ License: You must have a valid license purchased only from themeforest(the above
 
 		@section('scripts')
 			<!--begin::Base Scripts -->
-			<script src="{{ asset('metronic_5.05/assets/vendors/base/_vendors.bundle.js') }}" type="text/javascript"></script>
-			<script src="{{ asset('metronic_5.05/assets/demo/default/base/_scripts.bundle.js') }}" type="text/javascript"></script>
+			<script src="{{ asset('metronic_v5.1.1/assets/vendors/base/vendors.bundle.js') }}" type="text/javascript"></script>
+			<script src="{{ asset('metronic_v5.1.1/assets/demo/default/base/scripts.bundle.js') }}" type="text/javascript"></script>
 			<!--end::Base Scripts -->   
-			<!--begin::Page Vendors -->
-			{{-- <script src="{{ asset('metronic_5.05/assets/vendors/custom/fullcalendar/fullcalendar.bundle.js') }}" type="text/javascript"></script> --}}
-			<!--end::Page Vendors -->  
-			<!--begin::Page Snippets -->
-			{{-- <script src="{{ asset('metronic_5.05/assets/app/js/dashboard.js') }}" type="text/javascript"></script> --}}
-			<!--end::Page Snippets -->
 		@show
 	</body>
 	<!-- end::Body -->
