@@ -78,7 +78,8 @@
 											Personal Information												 					 
 										</div>
 									</div>
-								</div> 
+								</div>
+
 								<div class="m-wizard__step" data-wizard-target="#m_wizard_form_step_2">
 									<div class="m-wizard__step-info">
 										<a href="#" class="m-wizard__step-number">							
@@ -88,11 +89,11 @@
 											<span></span>
 										</div>
 										<div class="m-wizard__step-label">
-											Account Setup
+											Records
 										</div>
-	 
 									</div>
 								</div>
+
 								<div class="m-wizard__step" data-wizard-target="#m_wizard_form_step_3">
 									<div class="m-wizard__step-info">
 										<a href="#" class="m-wizard__step-number">
@@ -102,10 +103,11 @@
 											<span></span>
 										</div>
 										<div class="m-wizard__step-label">
-											Billing Setup
+											Account Settings
 										</div>
 									</div>
 								</div>
+
 								<div class="m-wizard__step" data-wizard-target="#m_wizard_form_step_4">
 									<div class="m-wizard__step-info">
 										<a href="#" class="m-wizard__step-number">
