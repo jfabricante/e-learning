@@ -27,7 +27,7 @@
 						<div class="m-portlet__head-title">
 							<h3 class="m-portlet__head-text">
 								User Registration
-								{{-- <small>form wizard example</small> --}}
+								<small>Please provide all the necessary details</small>
 							</h3>
 						</div>
 					</div>
