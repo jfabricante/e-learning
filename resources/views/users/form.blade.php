@@ -141,7 +141,7 @@
 								<div class="m-wizard__form-step m-wizard__form-step--current" id="m_wizard_form_step_1">
 									<div class="row">
 										<div class="col-xl-8 offset-xl-2">
-											<div class="m-form__section m-form__section--first">
+											<div class="m-form__section m-form__section--first personal-info">
 												<div class="m-form__heading">
 													<h3 class="m-form__heading-title">Personal Information</h3>
 												</div>
@@ -281,7 +281,7 @@
 								<div class="m-wizard__form-step" id="m_wizard_form_step_2">
 									<div class="row">
 										<div class="col-xl-12">
-											<div class="m-form__section m-form__section--first">
+											<div class="m-form__section m-form__section--first education">
 												<div class="m-form__heading">
 													<h3 class="m-form__heading-title">Educational Attainment</h3>
 
@@ -320,30 +320,102 @@
 
 											<div class="m-separator m-separator--dashed m-separator--lg"></div>
 
-											<div class="m-form__section">
+											<div class="m-form__section current-emp">
 												<div class="m-form__heading">
-													<h3 class="m-form__heading-title">Employment History</h3>
+													<h3 class="m-form__heading-title">Current Employment</h3>
 												</div>
 
 												<div class="form-group m-form__group row">
-													<label class="col-xl-3 col-lg-3 col-form-label"> Others:</label>
-													<div class="col-xl-9 col-lg-9">
-														<input name="name" class="form-control m-input" placeholder="" value="" type="text">
+													<label class="col-lg-1 col-form-label">Group:</label>
+													<div class="col-lg-3">
+														<input name="group" class="form-control m-input m-input--square" placeholder="" value="" type="text">
+													</div>
+
+													<label class="col-lg-1 col-form-label">Dealership:</label>
+													<div class="col-lg-3">
+														<input name="dealership" class="form-control m-input m-input--square" placeholder="" value="" type="text">
+													</div>
+
+													<label class="col-lg-1 col-form-label">Position:</label>
+													<div class="col-lg-3">
+														<input name="position" class="form-control m-input m-input--square" placeholder="" value="" type="text">
 													</div>
 												</div>
 
 												<div class="form-group m-form__group row">
-													<label class="col-lg-2 col-form-label">Degree:</label>
-													<div class="col-lg-4">
-														<input name="height" class="form-control m-input" placeholder="" value="" type="text">
+													<label class="col-lg-2 col-form-label">Date Hired:</label>
+													<div class="col-lg-3">
+														<input name="date-hired" class="form-control m-input m-input--square" id="date-hired" placeholder="" value="" type="text">
 													</div>
 
-													<label class="col-lg-2 col-form-label">Year:</label>
-													<div class="col-lg-4">
-														<input name="weight" class="form-control m-input" placeholder="" value="" type="text">
+													<label class="col-lg-3 col-form-label">Duties and Responsibilities:</label>
+													<div class="col-lg-3">
+														<input name="dealership" class="form-control m-input m-input--square" placeholder="" value="" type="text">
 													</div>
 												</div>
 
+											</div>
+
+											<div class="m-separator m-separator--dashed m-separator--lg"></div>
+
+											<div class="m-form__section employment">
+												<div class="m-form__heading">
+													<h3 class="m-form__heading-title">Previous Employment</h3>
+
+													<button type="button" class="btn btn-primary pull-right" id="emp-add">Add row</button>
+												</div>
+
+												<table class="table" id="previous-employment">
+													<thead>
+														<tr>
+															<th>Company</th>
+															<th>Address</th>
+															<th>Position</th>
+															<th>Inclusive Dates</th>
+															<th></th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td><input class="m-input m-input--square form-control" type="text"></td>
+															<td><input class="m-input m-input--square form-control" type="text"></td>
+															<td><input class="m-input m-input--square form-control" type="text"></td>
+															<td><input class="m-input m-input--square form-control inclusive-date" type="text" placeholder="mm/dd/yyyy - mm/dd/yyyy"></td>
+															<td><i class="la la-close"></i></td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+
+											<div class="m-separator m-separator--dashed m-separator--lg"></div>
+
+											<div class="m-form__section traning">
+												<div class="m-form__heading">
+													<h3 class="m-form__heading-title">Trainings Attended</h3>
+
+													<button type="button" class="btn btn-primary pull-right" id="tra-add">Add row</button>
+												</div>
+
+												<table class="table" id="training-attended">
+													<thead>
+														<tr>
+															<th>Title of Training</th>
+															<th>Trainer</th>
+															<th>Venue</th>
+															<th>Date</th>
+															<th></th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td><input class="m-input m-input--square form-control" type="text"></td>
+															<td><input class="m-input m-input--square form-control" type="text"></td>
+															<td><input class="m-input m-input--square form-control" type="text"></td>
+															<td><input class="m-input m-input--square form-control training-date" type="text" placeholder="Select date"></td>
+															<td><i class="la la-close"></i></td>
+														</tr>
+													</tbody>
+												</table>
 											</div>
 										</div>
 									</div>
