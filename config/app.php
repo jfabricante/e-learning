@@ -25,7 +25,8 @@ return [
     | your application so that it is used when running Artisan tasks.
     |
     */
-    'url' => 'http://' . $_SERVER['HTTP_HOST'] . '/e-learning/',
+    'url' => 'http://localhost/e-learning/',
+    // 'url' => 'http://' . $_SERVER['HTTP_HOST'] . '/e-learning/',
 
     /*
     |--------------------------------------------------------------------------
