@@ -34,9 +34,6 @@ License: You must have a valid license purchased only from themeforest(the above
 		</script>
 		<!--end::Web font -->
 		<!--begin::Base Styles -->
-		{{-- <link href="{{ asset('metronic_5.05/assets/vendors/base/_vendors.bundle.css') }}" rel="stylesheet" type="text/css" />
-		<link href="{{ asset('metronic_5.05/assets/demo/default/base/_style.bundle.css') }}" rel="stylesheet" type="text/css" /> --}}
-
 		<link href="{{ asset('metronic_v5.1.1/assets/vendors/base/vendors.bundle.css') }}" rel="stylesheet" type="text/css" />
 		<link href="{{ asset('metronic_v5.1.1/assets/demo/default/base/style.bundle.css') }}" rel="stylesheet" type="text/css" />
 		<!--end::Base Styles -->
@@ -57,7 +54,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 		<!-- begin:: Page -->
 		<div class="m-grid m-grid--hor m-grid--root m-page">
-			<div class="m-grid__item m-grid__item--fluid m-grid m-grid--hor m-login m-login--signin m-login--2 m-login-2--skin-2" id="m_login" style="background-image: url({{ asset('metronic_5.05/assets/app/media/img//bg/bg-3.jpg') }});">
+			<div class="m-grid__item m-grid__item--fluid m-grid m-grid--hor m-login m-login--signin m-login--2 m-login-2--skin-2" id="m_login" style="background-image: url({{ asset('metronic_v5.1.1/assets/app/media/img/bg/bg-3.jpg') }});">
 				<div class="m-grid__item m-grid__item--fluid	m-login__wrapper">
 					<div class="m-login__container">
 						<div class="m-login__logo">
