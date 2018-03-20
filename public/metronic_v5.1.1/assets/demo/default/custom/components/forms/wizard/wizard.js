@@ -18,7 +18,7 @@ var WizardDemo = function () {
             if (validator.form() !== true) {
                 return false;  // don't go to the next step
             }
-        })
+        });
 
         //== Change event
         wizard.on('change', function(wizard) {
@@ -41,11 +41,11 @@ var WizardDemo = function () {
                 email: {
                     required: true,
                     email: true 
-                },       
+                },
                 phone: {
                     required: true,
                     phoneUS: true 
-                },     
+                },
 
                 //== Mailing address
                 address1: {
