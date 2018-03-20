@@ -134,7 +134,7 @@
 							<thead>
 								<tr>
 									<th title="Field #1">#</th>
-									<th title="Field #2">Username</th>
+									<th title="Field #2">Email</th>
 									<th title="Field #3">Name</th>
 									<th title="Field #4">Dealer</th>
 									<th title="Field #5">Job Position</th>
@@ -143,20 +143,25 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>1</td>
-									<td>170707</td>
-									<td>Jerome Fabricante</td>
-									<td>Cavite</td>
-									<td>Technician</td>
-									<td>
-										<span class="m--font-bold m--font-success">Active</span>
-									</td>
-									<td>
-										<a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="View ">
-											<i class="la la-edit"></i>
-										</a>
-									</td>
+									@foreach($trainees as $trainee)
+										<tr>
+											<td>{{ $trainee->trainee_code }}</td>
+											<td>{{ $trainee->user->email }}</td>
+											<td>{{ $trainee->getFullname() }}</td>
+											<td>{{ $trainee->dealer->dealer_name }}</td>
+											<td>{{ $trainee->position->job_description }}</td>
+											<td>
+												<span class="m--font-bold m--font-success">
+													{{ $trainee->status->description }}
+												</span>
+											</td>
+											<td>
+												<a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="View ">
+													<i class="la la-edit"></i>
+												</a>
+											</td>
+										</tr>
+									@endforeach
 								</tr>
 							</tbody>
 						</table>
