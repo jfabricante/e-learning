@@ -12,7 +12,17 @@
 */
 
 Route::get('/', function () {
-    return view('login');
+	return view('login');
 });
 
 Route::resource('users', 'UserController');
+
+Route::post('/authenticate', 'Auth\AuthController@authenticate');
+
+Route::get('/logout', 'UserController@logout');
+
+Route::post('/dealer', 'UserController@dealer')->name('dealer');
+
+Route::post('/handle_store', 'UserController@handleStore');
+
+Route::get('/test', 'UserController@test');
