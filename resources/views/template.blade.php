@@ -105,6 +105,11 @@ License: You must have a valid license purchased only from themeforest(the above
 		<!-- begin::Quick Nav -->
 
 		@section('scripts')
+			{{-- Global variables --}}
+			<script type="text/javascript">
+				var appUrl     = "{{ url('/') }}";
+				var csrf_token = "{{ csrf_token() }}";
+			</script>
 			<!--begin::Base Scripts -->
 			<script src="{{ asset('metronic_v5.1.1/assets/vendors/base/vendors.bundle.js') }}" type="text/javascript"></script>
 			<script src="{{ asset('metronic_v5.1.1/assets/demo/default/base/scripts.bundle.js') }}" type="text/javascript"></script>
