@@ -75,6 +75,7 @@ License: You must have a valid license purchased only from themeforest(the above
 								<div class="form-group m-form__group">
 									<input class="form-control m-input m-login__form-input--last" type="password" placeholder="Password" name="password">
 								</div>
+								{!! csrf_field() !!}
 								<div class="row m-login__form-sub">
 									<div class="col m--align-left m-login__form-left">
 										<label class="m-checkbox  m-checkbox--focus">
@@ -183,6 +184,11 @@ License: You must have a valid license purchased only from themeforest(the above
 		<!-- end:: Page -->
 
 		<!--begin::Base Scripts -->
+		<script type="text/javascript">
+			var appUrl     = "{{ url('/') }}";
+			var csrf_token = "{{ csrf_token() }}";
+		</script>
+
 		<script src="{{ asset('metronic_v5.1.1/assets/vendors/base/vendors.bundle.js') }}" type="text/javascript"></script>
 		<script src="{{ asset('metronic_v5.1.1/assets/demo/default/base/scripts.bundle.js') }}" type="text/javascript"></script>
 		<!--end::Base Scripts -->   
