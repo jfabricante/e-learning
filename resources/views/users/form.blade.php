@@ -1,22 +1,7 @@
 @extends('template')
 
-@section('aside-left')
-	<li class="m-menu__item m-menu__item--active" aria-haspopup="true" >
-		<a href="index.html" class="m-menu__link ">
-			<i class="m-menu__link-icon flaticon-users"></i>
-			<span class="m-menu__link-title">
-				<span class="m-menu__link-wrap">
-					<span class="m-menu__link-text">
-						Users
-					</span>
-				</span>
-			</span>
-		</a>
-	</li>
-@endsection
-
 @section('content')
-<div class="m-content">
+<div class="m-content registration-form">
 	<div class="row">
 		<div class="col-md-9">
 			<!--Begin::Main Portlet-->
@@ -42,7 +27,7 @@
 						</ul>
 					</div>
 				</div>
-				<!--end: Portlet Head-->
+				<!--end: Portasdflet Head-->
 
 				<!--begin: Form Wizard-->
 				<div class="m-wizard m-wizard--1 m-wizard--success m-wizard--step-first" id="m_wizard">
