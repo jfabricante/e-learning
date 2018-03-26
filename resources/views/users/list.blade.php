@@ -1,22 +1,7 @@
 @extends('template')
 
-@section('aside-left')
-	<li class="m-menu__item m-menu__item--active" aria-haspopup="true" >
-		<a href="{{ route('users.index') }}" class="m-menu__link ">
-			<i class="m-menu__link-icon flaticon-users"></i>
-			<span class="m-menu__link-title">
-				<span class="m-menu__link-wrap">
-					<span class="m-menu__link-text">
-						Users
-					</span>
-				</span>
-			</span>
-		</a>
-	</li>
-@endsection
-
 @section('content')
-	<div class="m-content">
+	<div class="m-content users">
 		<div class="row">
 			<div class="col-md-12">
 				<div class="m-portlet m-portlet--mobile">
@@ -130,39 +115,40 @@
 						<!--end: Search Form -->
 
 						<!--begin: Datatable -->
-						<table class="m-datatable" id="html_table" width="100%">
+						<table class="m-datatable" id="html_table">
 							<thead>
 								<tr>
-									<th title="Field #1">#</th>
-									<th title="Field #2">Email</th>
-									<th title="Field #3">Name</th>
-									<th title="Field #4">Dealer</th>
-									<th title="Field #5">Job Position</th>
-									<th title="Field #6">Status</th>
-									<th title="Field #7">Actions</th>
+									<th title="RecordID">#</th>
+									<th title="Email">Email</th>
+									<th title="Name">Name</th>
+									<th title="Dealer">Dealer</th>
+									<th title="JobPosition">Job Position</th>
+									<th title="Status">Status</th>
+									<th title="Actions">Actions</th>
 								</tr>
 							</thead>
 							<tbody>
-									@foreach($trainees as $trainee)
-										<tr>
-											<td>{{ $trainee->trainee_code }}</td>
-											<td>{{ $trainee->user->email }}</td>
-											<td>{{ $trainee->getFullname() }}</td>
-											<td>{{ $trainee->dealer->dealer_name }}</td>
-											<td>{{ $trainee->position->job_description }}</td>
-											<td>
-												<span class="m--font-bold m--font-success">
-													{{ $trainee->status->description }}
-												</span>
-											</td>
-											<td>
-												<a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="View ">
-													<i class="la la-edit"></i>
-												</a>
-											</td>
-										</tr>
-									@endforeach
-								</tr>
+								<?php $i = 1 ?>
+								@foreach($trainees as $trainee)
+									<tr>
+										<td>{{ $i }}</td>
+										<td>{{ $trainee->email }}</td>
+										<td>{{ $trainee->getFullname() }}</td>
+										<td>{{ $trainee->dealer->dealer_name }}</td>
+										<td>{{ $trainee->position->job_description }}</td>
+										<td>
+											<span class="m--font-bold m--font-success">
+												{{ $trainee->status->description }}
+											</span>
+										</td>
+										<td>
+											<a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="View ">
+												<i class="la la-edit"></i>
+											</a>
+										</td>
+									</tr>
+									<?php $i = $i + 1 ?>
+								@endforeach
 							</tbody>
 						</table>
 						<!--end: Datatable -->
@@ -188,8 +174,20 @@
 						input: $('#generalSearch'),
 					},
 					columns: [
-
+						{
+							field: '#',
+							width: 40,
+							textAlign: 'center',
+						},
+						{
+							field: 'Email',
+							width: 300,
+						}
 					],
+					layout: {
+						scroll: true,
+					},
+					overflow: 'visible',
 				});
 			};
 			
