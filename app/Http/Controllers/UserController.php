@@ -27,7 +27,6 @@ class UserController extends Controller
 	{
 		$data = array('trainees' => Trainee::all());
 
-		// dd(Trainee::find(36)->status);
 		return view('users/list', $data);
 	}
 
