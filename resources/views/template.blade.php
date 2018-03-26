@@ -25,17 +25,6 @@ License: You must have a valid license purchased only from themeforest(the above
 		<meta name="description" content="Latest updates and statistic charts">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<!--begin::Web font -->
-		<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
-		<script>
-			WebFont.load({
-				google: {"families":["Poppins:300,400,500,600,700","Roboto:300,400,500,600,700"]},
-				active: function() {
-					sessionStorage.fonts = true;
-				}
-			});
-		</script>
-		<!--end::Web font -->
 
 		@section('styles')
 			<!--begin::Base Styles -->  
@@ -110,6 +99,19 @@ License: You must have a valid license purchased only from themeforest(the above
 				var appUrl     = "{{ url('/') }}";
 				var csrf_token = "{{ csrf_token() }}";
 			</script>
+
+			<!--begin::Web font -->
+			<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+			<script>
+				WebFont.load({
+					google: {"families":["Poppins:300,400,500,600,700","Roboto:300,400,500,600,700"]},
+					active: function() {
+						sessionStorage.fonts = true;
+					}
+				});
+			</script>
+			<!--end::Web font -->
+
 			<!--begin::Base Scripts -->
 			<script src="{{ asset('metronic_v5.1.1/assets/vendors/base/vendors.bundle.js') }}" type="text/javascript"></script>
 			<script src="{{ asset('metronic_v5.1.1/assets/demo/default/base/scripts.bundle.js') }}" type="text/javascript"></script>
