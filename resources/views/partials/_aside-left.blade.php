@@ -9,9 +9,49 @@
 		<!-- Begin:: Menu definition -->
 		<ul class="m-menu__nav  m-menu__nav--dropdown-submenu-arrow ">
 			<!-- section: aside left -->
-			@section('aside-left')
+			<?php $segment = explode('/', Request::url()); ?>
 
-				<li class="m-menu__item" aria-haspopup="true" >
+			@section('aside-left')
+				<li class="m-menu__item {{ $segment[5] == 'users' ? 'm-menu__item--active' : '' }}" aria-haspopup="true" >
+					<a href="{{ route('users.index') }}" class="m-menu__link ">
+						<i class="m-menu__link-icon flaticon-users"></i>
+						<span class="m-menu__link-title">
+							<span class="m-menu__link-wrap">
+								<span class="m-menu__link-text">
+									Users
+								</span>
+							</span>
+						</span>
+					</a>
+				</li>
+
+				<li class="m-menu__item {{ $segment[5] == 'categories' ? 'm-menu__item--active' : '' }}" aria-haspopup="true" >
+					<a href="{{ route('categories.index')}}" class="m-menu__link ">
+						<i class="m-menu__link-icon flaticon-tabs"></i>
+						<span class="m-menu__link-title">
+							<span class="m-menu__link-wrap">
+								<span class="m-menu__link-text">
+									Categories
+								</span>
+							</span>
+						</span>
+					</a>
+				</li>
+
+				<li class="m-menu__item {{ $segment[5] == 'subcategories' ? 'm-menu__item--active' : '' }}" aria-haspopup="true" >
+					<a href="{{ route('subcategories.index')}}" class="m-menu__link ">
+						<i class="m-menu__link-icon flaticon-tabs"></i>
+						<span class="m-menu__link-title">
+							<span class="m-menu__link-wrap">
+								<span class="m-menu__link-text">
+									Sub Categories
+								</span>
+							</span>
+						</span>
+					</a>
+				</li>
+
+				{{-- <li class="m-menu__item" aria-haspopup="true" >
 					<a  href="index.html" class="m-menu__link ">
 						<i class="m-menu__link-icon flaticon-line-graph"></i>
 						<span class="m-menu__link-title">
@@ -51,7 +91,7 @@
 					</a>
 					<!-- ./Menu toggle -->
 
-					<!-- Dropdown menu -->
+					Dropdown menu
 					<div class="m-menu__submenu">
 						<span class="m-menu__arrow"></span>
 						<!-- Dropdown menu items -->
@@ -89,7 +129,7 @@
 						<!-- ./Dropdown menu items -->
 					</div>
 					<!-- ./Dropdown Menu -->
-				</li>
+				</li> --}}
 				<!-- ./Menu items -->
 			@show
 			<!-- ./section aside-left -->
