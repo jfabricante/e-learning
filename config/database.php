@@ -66,7 +66,7 @@ return [
 		'e_learning' => [
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'e_learning',
+			'database'  => 'e-learning',
 			'username'  => 'root',
 			'password'  => '',
 			'charset'   => 'utf8',
