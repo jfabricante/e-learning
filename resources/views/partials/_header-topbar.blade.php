@@ -274,10 +274,10 @@
 								</div>
 								<div class="m-card-user__details">
 									<span class="m-card-user__name m--font-weight-500">
-										Mark Andre
+										{{ Auth::user()->trainee->getFullname() }}
 									</span>
 									<a href="" class="m-card-user__email m--font-weight-300 m-link">
-										mark.andre@gmail.com
+										{{ Auth::user()->trainee->email }}
 									</a>
 								</div>
 							</div>
