@@ -11,15 +11,27 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', ['middleware' => 'guest', function () {
 	return view('login');
-});
+}])->name('login');
 
-Route::resource('users', 'UserController');
+Route::group(['middleware' => 'auth'], function() {
+	Route::resource('users', 'UserController');
+
+	Route::resource('categories', 'CategoryController');
+
+	Route::resource('subcategories', 'SubCategoryController');
+
+	Route::resource('modules', 'ModuleController');
+
+	Route::resource('questions', 'QuestionBankController');
+
+	Route::get('modules/completed/{id}', 'ModuleController@moduleCompleted')->name('modules.completed');
+});
 
 Route::post('/authenticate', 'Auth\AuthController@authenticate');
 
-Route::get('/logout', 'UserController@logout');
+Route::get('/logout', 'UserController@logout')->name('logout');
 
 Route::post('/dealer', 'UserController@dealer')->name('dealer');
 
