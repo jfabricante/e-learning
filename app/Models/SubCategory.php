@@ -20,4 +20,10 @@ class SubCategory extends Model
     {
     	return $this->hasOne('App\Models\Category', 'id', 'category_id');
     }
+
+    // Modules
+    public function modules()
+    {
+        return $this->hasMany('App\Models\Module', 'subcategory_id');
+    }
 }
