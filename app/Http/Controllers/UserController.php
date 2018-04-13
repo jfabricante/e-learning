@@ -64,7 +64,7 @@ class UserController extends Controller
 
 	public function test()
 	{
-		dd(Trainee::find(36)->user);
+		return view('test');
 	}
 
 	/**
