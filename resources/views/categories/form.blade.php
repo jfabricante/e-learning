@@ -1,16 +1,7 @@
 @extends('template')
 
-@section('styles')
-	@parent
-	<style type="text/css">
-		.back-btn {
-			font-size: 25px !important;
-		}
-	</style>
-@endsection
-
 @section('content')
-	<div class="m-content">
+	<div class="m-content category-form">
 		<div class="row">
 			<div class="col-md-5">
 				@if (Session::has('msg'))
@@ -35,14 +26,13 @@
 
 						<div class="m-portlet__head-tools">
 							<div class="m-portlet__head-icon">
-								<a href="{{ route('categories.index') }}" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="Back">
-									<i class="la la-arrow-circle-left back-btn"></i>
+								<a href="{{ route('categories.index') }}" class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle" title="Back">
+									<i class="la la-arrow-left back-btn"></i>
 								</a>
 								
 							</div>
 						</div>
 					</div>
-
 					@if(isset($category))
 						{!! Form::open(['route' => ['categories.update', 'id' => $category['id']], 'class' => 'm-form m-form--fit m-form--label-align-right', 'method' => 'patch']) !!}
 					@else
@@ -56,8 +46,6 @@
 								<input class="form-control m-input m-input--square" id="category" name="category" value="{{ isset($category['name']) ? $category['name'] : '' }}" aria-describedby="categoryHelp" placeholder="Enter category" type="text" required>
 							</div>
 						</div>
-
-						{!! csrf_field() !!}
 
 						<div class="m-portlet__foot m-portlet__foot--fit">
 							<div class="m-form__actions">
