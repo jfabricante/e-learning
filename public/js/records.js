@@ -160,6 +160,8 @@ var RecordsData = function() {
 			$('.level').select2({placeholder: 'Select level'});
 		});
 
+		$('.level').select2({placeholder: 'Select level'});
+
 		$emp_add.on('click', function() {
 			let markup = '<tr>';
 
