@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Manila',
 
     /*
     |--------------------------------------------------------------------------
@@ -149,6 +149,11 @@ return [
          * Collective Services
          */
         Collective\Html\HtmlServiceProvider::class,
+
+        /*
+         * Pdf Viewer
+         */
+        // Goodnesskay\LaravelPdfViewer\LaravelPdfViewerServiceProvider::class,
     ],
 
     /*
