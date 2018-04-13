@@ -1,4 +1,15 @@
-body {
-  background: #fff; }
+.registration-form table.table > thead {
+  font-size: 15px; }
+
+.registration-form table.table .la-close {
+  margin-top: 12px;
+  cursor: pointer; }
+
+.registration-form .select2-container--default {
+  width: 100% !important; }
+
+.registration-form .select2-selection__rendered {
+  font-size: 1rem;
+  font-weight: normal; }
 
 /*# sourceMappingURL=app.css.map */
