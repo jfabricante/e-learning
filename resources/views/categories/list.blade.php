@@ -16,7 +16,7 @@
 						<div class="m-portlet__head-caption">
 							<div class="m-portlet__head-title">
 								<span class="m-portlet__head-icon">
-									<i class="flaticon-users"></i>
+									<i class="flaticon-layers"></i>
 								</span>
 
 								<h3 class="m-portlet__head-text">
@@ -138,9 +138,18 @@
 										<td>{{ $i }}</td>
 										<td>{{ $category['name'] }}</td>
 										<td>
-											<a href="{{ route('categories.edit', $category['id']) }}" class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="View ">
-												<i class="la la-edit"></i>
-											</a>
+											<span style="overflow: visible;">
+												<div class="dropdown">
+													<a href="" class="btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" data-toggle="dropdown">
+														<i class="la la-ellipsis-h"></i>
+													</a>
+													<div class="dropdown-menu dropdown-menu-right">
+														<a class="dropdown-item" href="{{ route('categories.edit', $category['id']) }}"><i class="la la-edit"></i> Edit Details</a>
+														<a class="dropdown-item" href="#"><i class="la la-leaf"></i> Update Status</a>
+														<a class="dropdown-item" href="#"><i class="la la-print"></i> Generate Report</a>
+													</div>
+												</div>
+											</span>
 										</td>
 									</tr>
 									<?php $i = $i + 1; ?>
@@ -161,7 +170,7 @@
 		var DatatableData = function() {
 			var init = function() {
 				var datatable = $('.m-datatable').mDatatable({
-					date: {
+					data: {
 						saveState: {cookie: false},
 					},
 					search: {
@@ -176,12 +185,9 @@
 						{
 							field: '',
 							width: 40,
+							overflow: 'visible',
 						}
 					],
-					layout: {
-						scroll: true,
-					},
-					overflow: 'visible',
 				});
 			};
 
