@@ -26,7 +26,7 @@
 					<div class="m-messenger__messages">
 						<div class="m-messenger__message m-messenger__message--in">
 							<div class="m-messenger__message-pic">
-								<img src="{{ asset('metronic_5.05/assets/app/media/img//users/user3.jpg') }}" alt=""/>
+								<img src="{{ asset('metronic_v5.1.1/assets/app/media/img/users/user3.jpg') }}" alt=""/>
 							</div>
 							<div class="m-messenger__message-body">
 								<div class="m-messenger__message-arrow"></div>
@@ -52,7 +52,7 @@
 						</div>
 						<div class="m-messenger__message m-messenger__message--in">
 							<div class="m-messenger__message-pic">
-								<img src="{{ asset('metronic_5.05/assets/app/media/img//users/user3.jp') }}g" alt=""/>
+								<img src="{{ asset('metronic_v5.1.1/assets/app/media/img/users/user3.jpg') }}" alt=""/>
 							</div>
 							<div class="m-messenger__message-body">
 								<div class="m-messenger__message-arrow"></div>
@@ -81,7 +81,7 @@
 						</div>
 						<div class="m-messenger__message m-messenger__message--in">
 							<div class="m-messenger__message-pic">
-								<img src="{{ asset('metronic_5.05/assets/app/media/img//users/user3.jpg') }}"  alt=""/>
+								<img src="{{ asset('metronic_v5.1.1/assets/app/media/img/users/user3.jpg') }}"  alt=""/>
 							</div>
 							<div class="m-messenger__message-body">
 								<div class="m-messenger__message-arrow"></div>
@@ -148,7 +148,7 @@
 						</div>
 						<div class="m-messenger__message m-messenger__message--in">
 							<div class="m-messenger__message-pic">
-								<img src="{{ asset('metronic_5.05/assets/app/media/img//users/user3.jpg') }}"  alt=""/>
+								<img src="{{ asset('metronic_v5.1.1/assets/app/media/img/users/user3.jpg') }}"  alt=""/>
 							</div>
 							<div class="m-messenger__message-body">
 								<div class="m-messenger__message-arrow"></div>
