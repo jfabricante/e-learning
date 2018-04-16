@@ -12,6 +12,7 @@ use App\Http\Controllers\Controller;
 
 use App\Models\Category;
 use App\Models\SubCategory;
+use App\Models\QuestionBank;
 
 class SubCategoryController extends Controller
 {
