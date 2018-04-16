@@ -26,6 +26,8 @@ Route::group(['middleware' => 'auth'], function() {
 
 	Route::resource('questions', 'QuestionBankController');
 
+	Route::get('questions/form/{id}', 'QuestionBankController@createQuestion')->name('questions.form');
+
 	Route::get('modules/completed/{id}', 'ModuleController@moduleCompleted')->name('modules.completed');
 });
 
