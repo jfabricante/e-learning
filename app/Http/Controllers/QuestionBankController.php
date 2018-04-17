@@ -128,7 +128,35 @@ class QuestionBankController extends Controller
 	 */
 	public function update(Request $request, $id)
 	{
-		//
+		$entity             = QuestionBank::find($id);
+		$entity->question   = $request->question;
+		$entity->answer     = $request->answer;
+		$entity->created_by = Auth::user()->id;
+
+		$success = $entity->save();
+
+		if ($success)
+		{
+			$q_id = $id;
+
+			Choice::where('question_id', $id)->delete();
+			// Prepare inserting choices
+			foreach ($request->choice as $row) 
+			{
+				$choice = new Choice;
+				$choice->choice = $row;
+				$choice->question_id = $q_id;
+				$choice->save();
+			}
+
+			Session::flash('msg', 'Question has been updated!');
+		}
+		else
+		{
+			Session::flash('msg', 'There is something wrong either in the question or choices!');
+		}
+
+		return redirect()->route('subcategories.show', ['id' => $request->sub_category_id]);
 	}
 
 	/**
