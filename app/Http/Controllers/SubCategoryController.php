@@ -71,7 +71,7 @@ class SubCategoryController extends Controller
 	 */
 	public function show($id)
 	{
-		$subcategory = SubCategory::find(7);
+		$subcategory = SubCategory::find($id);
 
 		$data = array(
 				'subcategory' => $subcategory,
