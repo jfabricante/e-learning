@@ -46,7 +46,8 @@ class QuestionBankController extends Controller
 
 	public function createQuestion($id)
 	{
-		return view('questions/form', compact('id'));
+		$title = 'Add New Question';
+		return view('questions/form', compact('id', 'title'));
 	}
 
 	/**
@@ -57,9 +58,6 @@ class QuestionBankController extends Controller
 	 */
 	public function store(Request $request)
 	{
-		//
-		// dd($request->all());
-
 		$entity                  = new QuestionBank;
 		$entity->question        = $request->question;
 		$entity->sub_category_id = $request->sub_category_id;
