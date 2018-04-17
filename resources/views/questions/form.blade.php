@@ -40,7 +40,7 @@
 
 						<div class="m-portlet__head-tools">
 							<div class="m-portlet__head-icon">
-								<a href="{{ route('questions.index') }}" class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle" title="Back">
+								<a href="{{ route('subcategories.show', $id) }}" class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle" title="Back">
 									<i class="la la-arrow-left back-btn"></i>
 								</a>
 								
