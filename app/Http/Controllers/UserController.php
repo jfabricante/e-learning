@@ -141,7 +141,7 @@ class UserController extends Controller
 			'duties'               => $input['duties'],
 		);
 
-		$trainee_id = Trainee::create($config)->id;
+		$trainee_id = Trainee::create($config)->trainee_code;
 
 		$education = array();
 
