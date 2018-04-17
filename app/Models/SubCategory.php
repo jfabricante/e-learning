@@ -26,4 +26,10 @@ class SubCategory extends Model
     {
         return $this->hasMany('App\Models\Module', 'subcategory_id');
     }
+
+    // Questions
+    public function questions()
+    {
+        return $this->hasMany('App\Models\QuestionBank', 'sub_category_id');
+    }
 }
