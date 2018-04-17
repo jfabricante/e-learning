@@ -23,7 +23,6 @@ class SubCategoryController extends Controller
 	 */
 	public function index()
 	{
-		//
 		$data = array(
 				'subcategories' => SubCategory::all()
 			);
@@ -72,8 +71,14 @@ class SubCategoryController extends Controller
 	 */
 	public function show($id)
 	{
-		//
+		$subcategory = SubCategory::find(7);
 
+		$data = array(
+				'subcategory' => $subcategory,
+				'questions'   => $subcategory->questions
+			);
+
+		return view('questions/list', $data);
 	}
 
 	/**
@@ -84,8 +89,6 @@ class SubCategoryController extends Controller
 	 */
 	public function edit($id)
 	{
-		//
-		// dd(SubCategory::find($id)->category->name);
 		$data = array(
 				'subcategory' => SubCategory::find($id),
 				'categories'  => Category::all()
