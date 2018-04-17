@@ -79,12 +79,12 @@ class QuestionBankController extends Controller
 				$choice->save();
 			}
 
-			// Session::flash('msg', 'New question has been saved!');
+			Session::flash('msg', 'New question has been saved!');
 		}
-		/*else
+		else
 		{
 			Session::flash('msg', 'There is something wrong either in the question or choices!');
-		}*/
+		}
 
 		return redirect()->route('subcategories.show', ['id' => $request->sub_category_id]);
 	}
