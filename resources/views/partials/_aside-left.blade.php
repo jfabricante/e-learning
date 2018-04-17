@@ -64,7 +64,7 @@
 					</a>
 				</li>
 
-				<li class="m-menu__item {{ $segment[5] == 'questions' ? 'm-menu__item--active' : '' }}" aria-haspopup="true" >
+				{{-- <li class="m-menu__item {{ $segment[5] == 'questions' ? 'm-menu__item--active' : '' }}" aria-haspopup="true" >
 					<a href="{{ route('questions.index')}}" class="m-menu__link ">
 						<i class="m-menu__link-icon flaticon-tabs"></i>
 						<span class="m-menu__link-title">
@@ -75,7 +75,7 @@
 							</span>
 						</span> 
 					</a>
-				</li>
+				</li> --}}
 
 				{{-- <li class="m-menu__item" aria-haspopup="true" >
 					<a  href="index.html" class="m-menu__link ">
