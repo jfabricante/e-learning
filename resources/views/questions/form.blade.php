@@ -6,6 +6,11 @@
 		.choices li {
 			margin: 10px 0;
 		}
+
+		.choices .la-remove {
+			padding: 10px;
+			cursor: pointer;
+		}
 	</style>
 @endsection
 
