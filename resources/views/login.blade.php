@@ -158,7 +158,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									<input class="form-control m-input" type="text" placeholder="Email" name="email" id="m_email" autocomplete="off">
 								</div>
 								<div class="m-login__form-action">
-									<button id="m_login_forget_password_submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air  m-login__btn m-login__btn--primaryr">
+									<button id="m_login_forget_password_submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air  m-login__btn m-login__btn--primary">
 										Request
 									</button>
 									&nbsp;&nbsp;
