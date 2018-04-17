@@ -194,14 +194,6 @@ class UserController extends Controller
 		$user->trainee_id = $trainee_id;
 
 		$user->save();
-
-		/*echo '<pre>';
-		print_r($input);
-		print_r($education);
-		echo '</pre>';*/
-		// $trainee_id = Trainee::create($config)->id;
-
-		// return response()->json();
 	}
 
 	public function logout()
