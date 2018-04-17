@@ -108,7 +108,15 @@ class QuestionBankController extends Controller
 	 */
 	public function edit($id)
 	{
-		//
+		$question = QuestionBank::find($id);
+
+		$data = array(
+				'id'       => $question->sub_category_id,
+				'question' => $question,
+				'title'    => 'Edit Question'
+			);
+
+		return view('questions/form', $data);
 	}
 
 	/**
