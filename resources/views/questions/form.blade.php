@@ -33,7 +33,7 @@
 									<i class="la la-gear"></i>
 								</span>
 								<h3 class="m-portlet__head-text">
-									Add New Question
+									{{ $title }}
 								</h3>
 							</div>
 						</div>
