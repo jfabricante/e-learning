@@ -20,5 +20,11 @@ class QuestionBank extends Model
 	{
 		return $this->hasMany('App\Models\Choice', 'question_id');
 	}
+
+	// Sub Category
+	public function subCategory()
+	{
+		return $this->belongsTo('App\Models\SubCategory');
+	}
 }
  
