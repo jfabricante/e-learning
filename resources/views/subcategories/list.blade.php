@@ -146,7 +146,7 @@
 													</a>
 													<div class="dropdown-menu dropdown-menu-right">
 														<a class="dropdown-item" href="{{ route('subcategories.edit', $subcategory['id']) }}"><i class="la la-edit"></i> Edit Details</a>
-														<a class="dropdown-item" href="#"><i class="la la-leaf"></i> Update Status</a>
+														<a class="dropdown-item" href="{{ route('subcategories.show', $subcategory['id']) }}"><i class="la la-question"></i> View Questions</a>
 														<a class="dropdown-item" href="#"><i class="la la-print"></i> Generate Report</a>
 													</div>
 												</div>
