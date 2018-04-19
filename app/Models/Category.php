@@ -15,8 +15,15 @@ class Category extends Model
     // Fillable fields
     protected $fillable = ['name'];
 
+    // SubCategories
     public function subCategories()
     {
     	return $this->hasMany('App\Models\SubCategory', 'category_id');
+    }
+
+    // Exam configurations
+    public function examConfigs()
+    {
+        return $this->hasMany('App\Models\ExamConfig', 'category_id');
     }
 }
