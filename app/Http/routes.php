@@ -29,6 +29,8 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::get('questions/form/{id}', 'QuestionBankController@createQuestion')->name('questions.form');
 
 	Route::get('modules/completed/{id}', 'ModuleController@moduleCompleted')->name('modules.completed');
+
+	Route::get('categories/form/{id}', 'CategoryController@configForm')->name('categories.form');
 });
 
 Route::post('/authenticate', 'Auth\AuthController@authenticate');
