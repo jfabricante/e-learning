@@ -107,4 +107,17 @@ class CategoryController extends Controller
 	{
 		//
 	}
+
+	/**
+	 * Configuration form
+	 * @param int $id
+	 * @return \Illuminate\\Http\Response
+	 */
+	public function configForm($id)
+	{
+		$category = Category::find($id);
+
+		return view('categories/config_form', compact('category'));
+	}
+
 }
