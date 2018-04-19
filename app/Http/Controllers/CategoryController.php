@@ -61,7 +61,7 @@ class CategoryController extends Controller
 	 */
 	public function show($id)
 	{
-		//
+		return view('categories.config_list', compact('id'));
 	}
 
 	/**
@@ -72,7 +72,6 @@ class CategoryController extends Controller
 	 */
 	public function edit($id)
 	{
-		//
 		$data = array(
 				'category' => Category::find($id)
 			);
