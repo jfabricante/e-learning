@@ -26,4 +26,10 @@ class ExamConfig extends Model
     {
     	return $this->hasMany('App\Models\subCategoryItems', 'exam_config_id');
     }
+
+    // Exam Config
+    public function userExamConfig()
+    {
+        return $this->hasMany('App\Models\UserExamConfig', 'exam_config_id');
+    }
 }
