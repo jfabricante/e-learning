@@ -26,11 +26,15 @@ Route::group(['middleware' => 'auth'], function() {
 
 	Route::resource('questions', 'QuestionBankController');
 
+	Route::resource('exams', 'ExamController');
+
 	Route::get('questions/form/{id}', 'QuestionBankController@createQuestion')->name('questions.form');
 
 	Route::get('modules/completed/{id}', 'ModuleController@moduleCompleted')->name('modules.completed');
 
 	Route::get('categories/form/{id}', 'CategoryController@configForm')->name('categories.form');
+
+	Route::post('categories/config_store', 'CategoryController@configStore')->name('categories.configStore');
 });
 
 Route::post('/authenticate', 'Auth\AuthController@authenticate');
