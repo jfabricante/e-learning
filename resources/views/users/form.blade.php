@@ -668,19 +668,7 @@
 												</div>
 												<!--end::Item-->
 											</div>
-											<!--end::Section-->	                
-											{{-- <div class="m-separator m-separator--dashed m-separator--lg"></div>
-											<div class="form-group m-form__group m-form__group--sm row">
-												<div class="col-xl-12">
-													<div class="m-checkbox-inline">
-														<label class="m-checkbox m-checkbox--solid m-checkbox--brand">
-														<input name="accept" value="1" type="checkbox"> 
-														Click here to indicate that you have read and agree to the terms presented in the Terms and Conditions agreement 
-														<span></span>
-														</label>
-													</div>
-												</div>
-											</div> --}}
+											<!--end::Section-->
 										</div>
 									</div>
 								</div>
