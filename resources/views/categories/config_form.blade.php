@@ -28,45 +28,74 @@
 							</div>
 						</div>
 					</div>
-
-					<div class="m-portlet__body">
-						<div class="form-group m-form__group">
-							<label for="description">
-								Description
-							</label>
-							<input class="form-control m-input m-input--square" id="description" name="description" aria-describedby="descriptionHelp" placeholder="Enter description" type="text" required>
-
-							<input class="form-control m-input m-input--square m--hide" id="category_id" name="category_id" aria-describedby="descriptionHelp" value="{{ $category->id }}" type="text" required>
-						</div>
-
-						<div class="m-separator m-separator--dashed m-separator--md"></div>
-						
-						@foreach($category->subCategories as $subcategory)
+					{!! Form::open(['route' => 'categories.configStore', 'class' => 'm-form m-form--fit m-form--label-align-right', 'files' => true]) !!}
+						<div class="m-portlet__body">
 							<div class="form-group m-form__group">
-								<label for="{{ $subcategory->id }}">{{ $subcategory->name }}</label>
+								<label for="description">
+									Description
+								</label>
+								<input class="form-control m-input m-input--square" id="description" name="description" aria-describedby="descriptionHelp" placeholder="Enter description" type="text" required>
 
-								<select class="form-control m-input m-input--square select-input" name="{{ $subcategory->id }}" required>
-									@for($i = 1; $i <= count($subcategory->questions); $i++)
-										<option value="{{ $i }}">{{ $i }}</option>
-									@endfor
-								</select>
+								<input class="form-control m-input m-input--square m--hide" id="category_id" name="category_id" aria-describedby="descriptionHelp" value="{{ $category->id }}" type="text" required>
 							</div>
-						@endforeach
 
-						<div class="m-separator m-separator--dashed m-separator--md"></div>
+							<div class="m-separator m-separator--dashed m-separator--md"></div>
+							
+							@foreach($category->subCategories as $subcategory)
+								<div class="form-group m-form__group">
+									<label for="{{ $subcategory->id }}">{{ $subcategory->name }}</label>
 
-						<div class="form-group m-form__group">
-								
+									<select class="form-control m-input m-input--square select-input" name="{{ $subcategory->id }}" required>
+										@for($i = 1; $i <= count($subcategory->questions); $i++)
+											<option value="{{ $i }}">{{ $i }}</option>
+										@endfor
+									</select>
+								</div>
+							@endforeach
+
+							<div class="m-separator m-separator--dashed m-separator--md"></div>
+
+							<div class="form-group m-form__group">
+								<label>Time Limit</label>
+								<input type="number" class="form-control m-input m-input--square" name="time_limit">
+							</div>
+
+							<div class="form-group m-form__group">
+								<label for="date_start">Date Start</label>
+
+								<div class="input-group" >
+									<input type="text" class="form-control m-input m-input--square" name="date_start" id="date_start" />
+									<div class="input-group-append">
+										<span class="input-group-text">
+											<i class="la la-calendar"></i>
+										</span>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group m-form__group">
+								<label for="date_end">Date End</label>
+
+								<div class="input-group" >
+									<input type="text" class="form-control m-input m-input--square" name="date_end" id="date_end" />
+									<div class="input-group-append">
+										<span class="input-group-text">
+											<i class="la la-calendar"></i>
+										</span>
+									</div>
+								</div>
+							</div>
+
 						</div>
-					</div>
 
-					<div class="m-portlet__foot">
-						<div class="m-form__actions">
-							<button type="submit" class="btn btn-danger">
-								Submit
-							</button>
+						<div class="m-portlet__foot">
+							<div class="m-form__actions">
+								<button type="submit" class="btn btn-danger">
+									Submit
+								</button>
+							</div>
 						</div>
-					</div>
+					{!! Form::close() !!}
 				</div>
 
 			</div>			
@@ -77,10 +106,46 @@
 @section('scripts')
 	@parent
 	<script type="text/javascript">
-		(function() {
-			$(document).ready(function() {
-				$('.select-input').select2({placeholder: 'Select Number of Items'});	
-			});
-		})();
+		var ConfigForm = function() {
+
+			var init = function() {
+				const $select_input = $('.select-input');
+				const $date_start   = $('#date_start');
+				const $date_end     = $('#date_end');
+
+				$select_input.select2({placeholder: 'Select Number of Items'});
+
+				$date_start.datepicker({
+					todayBtn: "linked",
+					clearBtn: true,
+					todayHighlight: true,
+					templates: {
+						leftArrow: '<i class="la la-angle-left"></i>',
+						rightArrow: '<i class="la la-angle-right"></i>'
+					}
+				});
+
+				$date_end.datepicker({
+					todayBtn: "linked",
+					clearBtn: true,
+					todayHighlight: true,
+					templates: {
+						leftArrow: '<i class="la la-angle-left"></i>',
+						rightArrow: '<i class="la la-angle-right"></i>'
+					}
+				});
+			}
+
+			// Public method
+			return {
+				initialize: function() {
+					init();
+				}
+			}
+		}();
+
+		$(document).ready(function() {
+			ConfigForm.initialize();
+		});
 	</script>
 @endsection
