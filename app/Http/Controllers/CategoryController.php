@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Session;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\ExamConfig;
+use App\Models\SubCategoryItems;
 
 class CategoryController extends Controller
 {
@@ -61,7 +63,9 @@ class CategoryController extends Controller
 	 */
 	public function show($id)
 	{
-		return view('categories.config_list', compact('id'));
+		$category = Category::find($id);
+		
+		return view('categories.config_list', compact('category'));
 	}
 
 	/**
@@ -118,6 +122,44 @@ class CategoryController extends Controller
 		$category = Category::find($id);
 
 		return view('categories/config_form', compact('category'));
+	}
+
+
+	/**
+	 * Config store
+	 *
+	 */
+	public function configStore(Request $request)
+	{
+		$config              = new ExamConfig;
+		$config->category_id = $request->category_id;
+		$config->description = $request->description;
+		$config->time_limit  = $request->time_limit;
+		$config->date_start  = date('Y-m-d', strtotime($request->date_start));
+		$config->date_end    = date('Y-m-d', strtotime($request->date_end));
+		$config->created_by  = Auth::user()->id;
+
+		$success = $config->save();
+
+		$config_id = $config->id;
+
+		if ($success)
+		{
+			foreach ($request->all() as $key => $value)
+			{
+				if (is_numeric($key))
+				{
+					$subCategoryItem                  = new SubCategoryItems;
+					$subCategoryItem->sub_category_id = $key;
+					$subCategoryItem->items           = $value;
+					$subCategoryItem->exam_config_id  = $config_id;
+					$subCategoryItem->save();
+				}	
+			}
+
+		}
+
+		return redirect()->route('categories.show', ['id' => $request->category_id]);
 	}
 
 }
