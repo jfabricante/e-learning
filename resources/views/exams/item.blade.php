@@ -76,15 +76,17 @@
 						</div>
 					</div>
 
-					{!! Form::open(['route' => ['exams.store']]) !!}
+					<input type="hidden" id="user_config_id" value="{{ $config->id }}">
+
 					@foreach ($entities as $entity)
 						<div class="m-portlet__body questions">
 							<div class="form-group m-form__group question__item">
 								<label for="question">
-									{{ $entities->currentPage() . '. ' . $entity->question }}
+									<span style="margin-right: 15px">{{ $entities->currentPage() . '. '}}</span> {{ $entity->question }}
 								</label>
 
-								<input type="hidden" name="question_id" class="question_id" value="{{ $entity->question_id }}" >
+								<input type="hidden" name="question_id" class="question_id" value="{{ $entity->id }}" >
+								<input type="hidden" name="correct_answer" class="correct_answer" value="{{ $entity->questionBank->answer }}" >
 
 								<ul type="a" class="choices" id="choices">
 									@if (isset($entity->examChoices) && count($entity->examChoices))
@@ -96,7 +98,7 @@
 													<div class="input-group-append">
 														<span class="input-group-text">
 															<label class="m-radio m-radio--single m-radio--state m-radio--state-primary">
-																<input type="radio" name="answer" value="{{ $row->choice }}" class="answer" required>
+																<input type="radio" name="answer" value="{{ $row->choice }}" {!! isset($entity->examAnswer) ? $entity->examAnswer->user_exam_answer == $row->choice ? 'checked' : '' : '' !!} class="answer" required>
 																<span></span>
 															</label>
 														</span>
@@ -112,20 +114,31 @@
 
 					<div class="m-portlet__foot">
 						<div class="row">
-							<div class="col-md-9">
+							<div class="col-md-3">
+								@if ($entities->currentPage() > 1)
+									<a href="{{ $entities->previousPageUrl() }}">
+										<button type="button" class="btn btn-success"><i class="la la-angle-double-left"></i> Back</button>
+									</a>
+								@endif
+							</div>
+
+							<div class="col-md-6 text-center">
 								{!! $entities->render() !!}
 							</div>
 
 							<div class="col-md-3 text-right">
 								@if ($entities->currentPage() == $entities->total())
 									<button type="submit" class="btn btn-danger">
-										Submit
+										Submit <i class="flaticon flaticon-paper-plane"></i>
 									</button>
+								@else
+									<a href="{{ $entities->nextPageUrl() }}">
+										<button type="button" class="btn btn-success">Next <i class="la la-angle-double-right"></i></button>
+									</a>
 								@endif
 							</div>
 						</div>
 					</div>
-					{!! Form::close() !!}
 
 				</div>
 
