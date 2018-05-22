@@ -62,6 +62,30 @@ class ExamController extends Controller
 		return response()->json($data);
 	}
 
+	public function updateAnswer(Request $request)
+	{
+		$user_answer = UserExamAnswers::where('user_exam_question_id', $request->question_id)->first();
+
+		if ($user_answer)
+		{
+			$user_answer->user_exam_question_id = $request->question_id;
+			$user_answer->user_exam_answer      = $request->answer;
+			$user_answer->is_correct            = $request->answer == $request->correct_answer;
+			$user_answer->save();
+		}
+		else
+		{
+			// Create new instance
+			$user_answer                        = new UserExamAnswers;
+			$user_answer->user_exam_question_id = $request->question_id;
+			$user_answer->user_exam_answer      = $request->answer;
+			$user_answer->is_correct            = $request->answer == $request->correct_answer;
+			$user_answer->save();
+		}
+
+		return response()->json($user_answer); 
+	}
+
 	/**
 	 * Display the specified resource.
 	 *
