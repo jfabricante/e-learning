@@ -123,6 +123,10 @@
 						{
 							field: 'Description',
 							width: 200,
+						},
+						{
+							field: '',
+							width: 40,
 						}
 					],
 				});
