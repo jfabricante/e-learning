@@ -15,11 +15,38 @@
 		.pagination > li {
 			padding: 5px 11px;
 			margin: 0 2px;
+			cursor: pointer;
+		}
+
+		.pagination > li:hover {
+			text-decoration: none;
+			background: #34bfa3;
+			border-color: #34bfa3;
+			color: #fff;
+		}
+
+		.pagination > li > a {
+			color: #575962;
+			text-decoration: none;
+		}
+
+		.pagination > li > a:hover {
+			color: #fff;
 		}
 
 		.pagination > .active {
-			background: #2c2e3e;
+			background: #34bfa3;
+			border-color: #34bfa3;
 			color: #fff;
+		}
+
+		.pagination > li:first-child,
+		.pagination > li:last-child {
+			display: none !important;
+		}
+
+		.questions {
+			min-height: 350px !important;
 		}
 	</style>
 @endsection
