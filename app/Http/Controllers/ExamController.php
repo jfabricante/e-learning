@@ -111,8 +111,6 @@ class ExamController extends Controller
 
 			$user_exam_config_id = $user_exam_config->id;
 
-			// $exams = array();
-
 			foreach ($config as $row)
 			{
 				$questions = QuestionBank::where('sub_category_id', $row->sub_category_id)->take($row->items)->orderByRaw("RAND()")->get()->shuffle();
@@ -120,9 +118,6 @@ class ExamController extends Controller
 				foreach ($questions as $question)
 				{
 					$choices = $question->choices->shuffle();
-
-					/*$exams[$count]['question_id'] = $question->id;
-					$exams[$count]['question']    = $question->question;*/
 
 					// Store shuffle questions
 					$user_exam_question = new UserExamQuestions;
@@ -140,8 +135,6 @@ class ExamController extends Controller
 						$user_exam_choice->choice = $choice->choice;
 						$user_exam_choice->user_exam_question_id = $user_exam_question_id;
 						$user_exam_choice->save();
-
-						// $exams[$count]['choices'][$key] = $choice->choice; 
 					}
 				}
 
@@ -150,12 +143,12 @@ class ExamController extends Controller
 
 		$user_config = UserExamConfig::where(['config_id' => $id, 'user_id' => Auth::user()->id])->first();
 
-		// dd($user_config->examConfig->description);
-
 		$entities = $user_config->examQuestions()->paginate(1);
+
 		$data = array(
 				'entities' => $user_config->examQuestions()->paginate(1),
-				'title'    => $user_config->examConfig->description
+				'title'    => $user_config->examConfig->description,
+				'config'   => $user_config
 			);
 		
 		return view('exams.item', $data);
