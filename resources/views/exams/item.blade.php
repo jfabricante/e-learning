@@ -153,9 +153,49 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('.answer').on('click', function() {
-				console.log($(this).val());
-				console.log($('.question_id').val());
+				var self = $(this);
+
+				$.ajax({
+					url: appUrl + '/exams/update_answer',
+					type: 'POST',
+					data: {
+						answer: self.val(),
+						question_id: $('.question_id').val(),
+						correct_answer: $('.correct_answer').val(),
+						_token: '{!! csrf_token() !!}'
+					},
+					success: function(data) {
+						console.log(data)
+					}
+				});
 			});
+
+
+			$('.btn-danger').on('click', function() {
+				var self = $(this);
+				mApp.progress(self);
+
+				$.ajax({
+					url: "{{ route('exams.store') }}",
+					type: 'POST',
+					data: {
+						status: 'success',
+						_token: '{!! csrf_token() !!}',
+						config_id: $('#user_config_id').val()
+					},
+					success: function(data) {
+						mApp.unprogress(self);
+						swal({
+							"title": "", 
+							"text": "Your score is " + data['score'] + " out of " + data['items'] + " items!", 
+							"type": "success",
+							"confirmButtonClass": "btn btn-secondary m-btn m-btn--wide"
+						});
+						console.log(data);
+					}
+				});
+			});
+
 		});
 	</script>
 @endsection
