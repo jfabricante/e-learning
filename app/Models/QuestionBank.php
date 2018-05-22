@@ -26,5 +26,11 @@ class QuestionBank extends Model
 	{
 		return $this->belongsTo('App\Models\SubCategory');
 	}
+
+	// UserExamQuestion
+	public function userExamQuestions()
+	{
+		return $this->hasMany('App\Models\UserExamQuestions');
+	}
 }
  
