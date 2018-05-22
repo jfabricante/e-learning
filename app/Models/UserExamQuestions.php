@@ -26,4 +26,16 @@ class UserExamQuestions extends Model
 	{
 		return $this->hasMany('App\Models\UserExamChoices', 'user_exam_question_id');
 	}
+
+	// Source Question
+	public function questionBank()
+	{
+		return $this->belongsTo('App\Models\QuestionBank', 'question_id', 'id');
+	}
+
+	// UserExamQuestions
+	public function examAnswer()
+	{
+		return $this->hasOne('App\Models\UserExamAnswers', 'user_exam_question_id');
+	}
 }
