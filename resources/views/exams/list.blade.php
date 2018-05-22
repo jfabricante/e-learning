@@ -119,6 +119,10 @@
 							field: '#',
 							width: 40,
 							textAlign: 'center',
+						},
+						{
+							field: 'Description',
+							width: 200,
 						}
 					],
 				});
