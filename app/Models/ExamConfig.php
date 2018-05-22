@@ -30,6 +30,6 @@ class ExamConfig extends Model
     // Exam Config
     public function userExamConfig()
     {
-        return $this->hasMany('App\Models\UserExamConfig', 'exam_config_id');
+        return $this->hasMany('App\Models\UserExamConfig', 'config_id');
     }
 }
