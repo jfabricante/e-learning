@@ -143,7 +143,7 @@
 										<td>{{ $module->subcategory->name }}</td>
 										<td>{{ $module->name }}</td>
 										<td>{{ $module->course_period }}</td>
-										<td>{{ count($module->states) ? $module->states()->where('user_id', Auth::user()->id)->first()->status : 'Not Yet Started' }}</td>
+										<td>{{ count($module->states()->where('user_id', Auth::user()->id)->first()) ? $module->states()->where('user_id', Auth::user()->id)->first()->status : 'Not Yet Started' }}</td>
 										<td>{{ $module->plan_start != '0000-00-00' ? date('m/d/Y', strtotime($module->plan_start)) : '' }}</td>
 										<td>{{ $module->completion_date != '0000-00-00' ? date('m/d/Y', strtotime($module->completion_date)) : '' }}</td>
 										<td>
