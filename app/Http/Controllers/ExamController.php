@@ -15,6 +15,7 @@ use App\Models\QuestionBank;
 use App\Models\UserExamConfig;
 use App\Models\UserExamQuestions;
 use App\Models\UserExamChoices;
+use App\Models\UserExamAnswers;
 
 
 class ExamController extends Controller
