@@ -28,6 +28,8 @@ Route::group(['middleware' => 'auth'], function() {
 
 	Route::resource('exams', 'ExamController');
 
+	Route::post('exams/update_answer', 'ExamController@updateAnswer');
+
 	Route::get('questions/form/{id}', 'QuestionBankController@createQuestion')->name('questions.form');
 
 	Route::get('modules/completed/{id}', 'ModuleController@moduleCompleted')->name('modules.completed');
