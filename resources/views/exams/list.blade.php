@@ -24,8 +24,6 @@
 								</h3>
 							</div>
 						</div>
-
-						
 					</div>
 
 					<div class="m-portlet__body">
@@ -60,7 +58,8 @@
 									<th title="Field #4">Time Limit</th>
 									<th title="Field #5">Date Start</th>
 									<th title="Field #6">Date End</th>
-									<th title="Field #7"></th>
+									<th title="Field #7">Score</th>
+									<th title="Field #8"></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -73,6 +72,8 @@
 										<td>{{ $row->time_limit }}</td>
 										<td>{{ date('m/d/Y', strtotime($row->date_start)) }}</td>
 										<td>{{ date('m/d/Y', strtotime($row->date_end)) }}</td>
+										<td>{{ $row->userExamConfig()->where('user_id', Auth::user()->id)->first() ? $row->userExamConfig()->where('user_id', Auth::user()->id)->first()->examQuestions->map(function($item) {return count($item->examAnswer) ? $item->examAnswer : 0 ; })->sum('is_correct') : 0 }}
+										</td>
 										<td>
 											<span style="overflow: visible;">
 												<div class="dropdown">
