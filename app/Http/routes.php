@@ -30,6 +30,8 @@ Route::group(['middleware' => 'auth'], function() {
 
 	Route::post('exams/update_answer', 'ExamController@updateAnswer');
 
+	Route::post('exams/update_time', 'ExamController@updateTime')->name('exams.update_time');
+
 	Route::get('questions/form/{id}', 'QuestionBankController@createQuestion')->name('questions.form');
 
 	Route::get('modules/completed/{id}', 'ModuleController@moduleCompleted')->name('modules.completed');
