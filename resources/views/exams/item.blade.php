@@ -54,7 +54,7 @@
 @section('content')
 	<div class="m-content question-form">
 		<div class="row">
-			<div class="col-md-9">
+			<div class="col-md-12">
 				@if (Session::has('msg'))
 					<div class="alert alert-success alert-dismissible fade show" role="alert">
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
