@@ -74,9 +74,11 @@
 								</h3>
 							</div>
 						</div>
-					</div>
 
-					<input type="hidden" id="user_config_id" value="{{ $config->id }}">
+						<div class="m-portlet__head-tools">
+							<h4 id="timer"></h4>
+						</div>
+					</div>
 
 					@foreach ($entities as $entity)
 						<div class="m-portlet__body questions">
