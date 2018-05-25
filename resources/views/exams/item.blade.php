@@ -95,7 +95,7 @@
 
 										@foreach($entity->examChoices as $row)
 											<li class="choice-item">
-												<div class="input-group m-form__group col-md-7">
+												<div class="input-group m-form__group col-md-6">
 													<input type="text" class="form-control m-input m-input--square choice-input" required value="{{ $row->choice }}" name="choice[]" readonly>
 													<div class="input-group-append">
 														<span class="input-group-text">
