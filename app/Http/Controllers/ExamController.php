@@ -101,17 +101,19 @@ class ExamController extends Controller
 		// Generate random exam for specific user
 		if ($flag == 0)
 		{
-			$config = ExamConfig::find($id)->subCategoryItems;
+			$config            = ExamConfig::find($id);
+			$subcategory_items = $config->subCategoryItems;
 
 			// Save initial configuration
-			$user_exam_config = new UserExamConfig;
-			$user_exam_config->user_id = Auth::user()->id;
-			$user_exam_config->config_id = $id;
+			$user_exam_config                 = new UserExamConfig;
+			$user_exam_config->user_id        = Auth::user()->id;
+			$user_exam_config->config_id      = $id;
+			$user_exam_config->remaining_time = $config->time_limit * 60; // Convert the minutes to seconds
 			$user_exam_config->save();
 
 			$user_exam_config_id = $user_exam_config->id;
 
-			foreach ($config as $row)
+			foreach ($subcategory_items as $row)
 			{
 				$questions = QuestionBank::where('sub_category_id', $row->sub_category_id)->take($row->items)->orderByRaw("RAND()")->get()->shuffle();
 
@@ -120,9 +122,9 @@ class ExamController extends Controller
 					$choices = $question->choices->shuffle();
 
 					// Store shuffle questions
-					$user_exam_question = new UserExamQuestions;
-					$user_exam_question->question_id = $question->id;
-					$user_exam_question->question = $question->question;
+					$user_exam_question                      = new UserExamQuestions;
+					$user_exam_question->question_id         = $question->id;
+					$user_exam_question->question            = $question->question;
 					$user_exam_question->user_exam_config_id = $user_exam_config_id;
 					$user_exam_question->save();
 
@@ -131,13 +133,12 @@ class ExamController extends Controller
 					foreach ($choices as $key => $choice)
 					{
 						// Store shuffled choices
-						$user_exam_choice = new UserExamChoices;
-						$user_exam_choice->choice = $choice->choice;
+						$user_exam_choice                        = new UserExamChoices;
+						$user_exam_choice->choice                = $choice->choice;
 						$user_exam_choice->user_exam_question_id = $user_exam_question_id;
 						$user_exam_choice->save();
 					}
 				}
-
 			}
 		}
 
