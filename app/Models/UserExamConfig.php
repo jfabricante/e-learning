@@ -13,7 +13,7 @@ class UserExamConfig extends Model
 	protected $table = 'user_exam_config_tbl';
 
 	// Fillable fields
-	protected $fillable = ['user_id', 'config_id'];
+	protected $fillable = ['user_id', 'config_id', 'remaining_time'];
 
 	// Exam questions
 	public function examQuestions()
