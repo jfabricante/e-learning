@@ -186,7 +186,6 @@
 
 @section('scripts')
 	@parent
-
 	<script type="text/javascript">
 		var ModuleTable = function() {
 			var init = function() {
