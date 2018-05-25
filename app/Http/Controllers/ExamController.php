@@ -189,4 +189,16 @@ class ExamController extends Controller
 	{
 		//
 	}
+
+	/**
+	 * Update time
+	 */
+	public function updateTime(Request $request)
+	{
+		$user_config = UserExamConfig::find($request->id);
+		$user_config->remaining_time = $request->remaining_time;
+		$user_config->save();
+
+		return response()->json($user_config);
+	}
 }
