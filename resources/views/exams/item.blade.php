@@ -151,53 +151,133 @@
 
 @section('scripts')
 	@parent
+	<script src="{{ asset('js/countdown_timer.min.js') }}" type="text/javascript"></script>
 
 	<script type="text/javascript">
-		$(document).ready(function() {
-			$('.answer').on('click', function() {
-				var self = $(this);
+		var ItemPage = function() {
+			var init = function() {
+				updateAnswer();
+				removeRow();
+				updateTimer()
+			}
 
-				$.ajax({
-					url: appUrl + '/exams/update_answer',
-					type: 'POST',
-					data: {
-						answer: self.val(),
-						question_id: $('.question_id').val(),
-						correct_answer: $('.correct_answer').val(),
-						_token: '{!! csrf_token() !!}'
-					},
-					success: function(data) {
-						console.log(data)
-					}
+			var updateAnswer = function() {
+				$('.answer').on('click', function() {
+					var self = $(this);
+
+					$.ajax({
+						url: appUrl + '/exams/update_answer',
+						type: 'POST',
+						data: {
+							answer: self.val(),
+							question_id: $('.question_id').val(),
+							correct_answer: $('.correct_answer').val(),
+							_token: '{!! csrf_token() !!}'
+						},
+						success: function(data) {
+							console.log(data)
+						}
+					});
 				});
-			});
+			};
+
+			var removeRow = function() {
+				$('.btn-danger').on('click', function() {
+					var self = $(this);
+					mApp.progress(self);
+
+					$.ajax({
+						url: "{{ route('exams.store') }}",
+						type: 'POST',
+						data: {
+							status: 'success',
+							_token: '{!! csrf_token() !!}',
+							config_id: {{ $config->id }}
+						},
+						success: function(data) {
+							mApp.unprogress(self);
+							swal({
+								"title": "", 
+								"text": "Your score is " + data['score'] + " out of " + data['items'] + " items!", 
+								"type": "success",
+								"confirmButtonClass": "btn btn-secondary m-btn m-btn--wide"
+							});
+						}
+					});
+				});
+			};
+
+			var updateTimer = function() {
+				var date     = new Date();
+					// nowTimes = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds(),
+				var	timeElem = document.getElementById('timer');
+					// nowTimes = 0 + ':' + parseInt(timeElem.innerText) + ':' + 0;
+				var	nowTimes = Math.floor(parseInt("{{ $config->remaining_time / 3600 }}")) + ':' + parseInt("{{ ($config->remaining_time / 60) % 60 }}") + ':' + parseInt("{{ $config->remaining_time % 60 }}");
 
 
-			$('.btn-danger').on('click', function() {
-				var self = $(this);
-				mApp.progress(self);
+				var config = {
+					'id': '{{ $config->id }}',
+					'user_id': '{{ $config->user_id }}',
+					'config_id': '{{ $config->config_id }}',
+					'remaining_time': nowTimes
+				};
 
-				$.ajax({
-					url: "{{ route('exams.store') }}",
-					type: 'POST',
-					data: {
-						status: 'success',
-						_token: '{!! csrf_token() !!}',
-						config_id: $('#user_config_id').val()
-					},
-					success: function(data) {
-						mApp.unprogress(self);
-						swal({
-							"title": "", 
-							"text": "Your score is " + data['score'] + " out of " + data['items'] + " items!", 
-							"type": "success",
-							"confirmButtonClass": "btn btn-secondary m-btn m-btn--wide"
+
+				if (localStorage.getItem('config') == null)
+				{
+					localStorage.setItem('config', JSON.stringify(config));
+				}
+				else if(JSON.parse(localStorage.getItem('config')).id != "{{ $config->id }}")
+				{
+					let settings = JSON.parse(localStorage.getItem('config'));
+
+					let parts = settings.remaining_time.split(':');
+
+					localStorage.setItem('config', JSON.stringify(config));
+
+					$.ajax({
+							url: "{{ route('exams.update_time') }}",
+							type: 'POST',
+							data: {
+								id: settings.id,
+								remaining_time: (parseInt(parts[0]) * 3600) + (parseInt(parts[1]) * 60) + parseInt(parts[2]), // Convert to second
+								_token: '{!! csrf_token() !!}',
+							},
+							success: function(data) {
+								console.log(data);
+							}
 						});
-						console.log(data);
+				}
+
+				var time = new CountDownTimer(JSON.parse(localStorage.getItem('config')).remaining_time, function(times, prams) {
+					timeElem.innerText = times;
+
+					var config = {
+						'id': '{{ $config->id }}',
+						'user_id': '{{ $config->user_id }}',
+						'config_id': '{{ $config->config_id }}',
+						'remaining_time': times
+					};
+
+					localStorage.setItem('config', JSON.stringify(config));
+
+					if(prams.isFinal()) {
+						localStorage.removeItem('config');
+						location.reload();
 					}
 				});
-			});
+			};
 
+			return {
+				instance: function() {
+					init();
+				}
+			}
+
+		}();
+
+		$(document).ready(function() {
+			ItemPage.instance();
 		});
 	</script>
 @endsection
