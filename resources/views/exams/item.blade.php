@@ -157,8 +157,10 @@
 		var ItemPage = function() {
 			var init = function() {
 				updateAnswer();
-				removeRow();
-				updateTimer()
+				submitResult();
+				@if ($config->status == '')
+					updateTimer();
+				@endif
 			}
 
 			var updateAnswer = function() {
