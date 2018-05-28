@@ -130,7 +130,7 @@
 
 							<div class="col-md-3 text-right">
 								@if ($entities->currentPage() == $entities->total())
-									<button type="submit" class="btn btn-danger">
+									<button type="submit" class="btn btn-danger" {{ $config->status == '' ? '' : 'disabled' }} >
 										Submit <i class="flaticon flaticon-paper-plane"></i>
 									</button>
 								@else
