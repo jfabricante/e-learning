@@ -100,7 +100,7 @@
 													<div class="input-group-append">
 														<span class="input-group-text">
 															<label class="m-radio m-radio--single m-radio--state m-radio--state-primary">
-																<input type="radio" name="answer" value="{{ $row->choice }}" {!! isset($entity->examAnswer) ? $entity->examAnswer->user_exam_answer == $row->choice ? 'checked' : '' : '' !!} class="answer" required>
+																<input type="radio" name="answer" value="{{ $row->choice }}" {!! isset($entity->examAnswer) ? $entity->examAnswer->user_exam_answer == $row->choice ? 'checked' : '' : '' !!} class="answer" required {{ $config->status == '' ? '' : 'disabled' }}>
 																<span></span>
 															</label>
 														</span>
