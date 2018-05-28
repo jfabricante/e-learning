@@ -242,7 +242,7 @@
 							type: 'POST',
 							data: {
 								id: settings.id,
-								remaining_time: (parseInt(parts[0]) * 3600) + (parseInt(parts[1]) * 60) + parseInt(parts[2]), // Convert to second
+								remaining_time: (parseInt(parts[0]) * 3600) + (parseInt(parts[1]) * 60) + parseInt(parts[2]), // Convert to seconds
 								_token: '{!! csrf_token() !!}',
 							},
 							success: function(data) {
