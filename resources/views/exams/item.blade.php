@@ -183,10 +183,12 @@
 				});
 			};
 
-			var removeRow = function() {
+			var submitResult = function() {
 				$('.btn-danger').on('click', function() {
 					var self = $(this);
 					mApp.progress(self);
+
+					$('.question-form').css('display', 'none');
 
 					$.ajax({
 						url: "{{ route('exams.store') }}",
