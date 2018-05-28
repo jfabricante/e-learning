@@ -264,8 +264,40 @@
 					localStorage.setItem('config', JSON.stringify(config));
 
 					if(prams.isFinal()) {
-						localStorage.removeItem('config');
-						location.reload();
+						$.ajax({
+								url: "{{ route('exams.update_time') }}",
+								type: 'POST',
+								data: {
+									id: config.id,
+									remaining_time: 0, // Convert to second
+									_token: '{!! csrf_token() !!}',
+								},
+								success: function(data) {
+									localStorage.removeItem('config');
+									$('.question-form').css('display', 'none');
+
+									// location.reload();
+									$.ajax({
+										url: "{{ route('exams.store') }}",
+										type: 'POST',
+										data: {
+											status: 'Out of time',
+											_token: '{!! csrf_token() !!}',
+											config_id: '{{ $config->id }}'
+										},
+										success: function(data) {
+											mApp.unprogress(self);
+											swal({
+												"title": "", 
+												// "text": "Your score is " + data['score'] + " out of " + data['items'] + " items!", 
+												"text": "Your exam has been submitted!", 
+												"type": "success",
+												"confirmButtonClass": "btn btn-secondary m-btn m-btn--wide"
+											});
+										}
+									});
+								}
+							});
 					}
 				});
 			};
