@@ -194,15 +194,16 @@
 						url: "{{ route('exams.store') }}",
 						type: 'POST',
 						data: {
-							status: 'success',
+							status: 'Completed',
 							_token: '{!! csrf_token() !!}',
-							config_id: {{ $config->id }}
+							config_id: '{{ $config->id }}'
 						},
 						success: function(data) {
 							mApp.unprogress(self);
 							swal({
 								"title": "", 
-								"text": "Your score is " + data['score'] + " out of " + data['items'] + " items!", 
+								// "text": "Your score is " + data['score'] + " out of " + data['items'] + " items!", 
+								"text": "Your exam has been submitted!", 
 								"type": "success",
 								"confirmButtonClass": "btn btn-secondary m-btn m-btn--wide"
 							});
