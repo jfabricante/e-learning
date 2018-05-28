@@ -52,14 +52,18 @@ class ExamController extends Controller
 	 */
 	public function store(Request $request)
 	{
-		$user_exam_questions = count(UserExamConfig::find($request->config_id)->examQuestions) ? UserExamConfig::find($request->config_id)->examQuestions : 0;
+		/*$user_exam_questions = count(UserExamConfig::find($request->config_id)->examQuestions) ? UserExamConfig::find($request->config_id)->examQuestions : 0;
 
 		$data = array(
 			'score' => $user_exam_questions ? $user_exam_questions->map(function($item) {return count($item->examAnswer) ? $item->examAnswer : 0 ; })->sum('is_correct') : 0,
 			'items' => $user_exam_questions ? $user_exam_questions->count() : 0
-		);
+		);*/
 
-		return response()->json($data);
+		$user_config = UserExamConfig::find($request->config_id);
+		$user_config->status = $request->status;
+		$user_config->save();
+
+		return response()->json($user_config);
 	}
 
 	public function updateAnswer(Request $request)
