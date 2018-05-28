@@ -214,11 +214,8 @@
 
 			var updateTimer = function() {
 				var date     = new Date();
-					// nowTimes = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds(),
 				var	timeElem = document.getElementById('timer');
-					// nowTimes = 0 + ':' + parseInt(timeElem.innerText) + ':' + 0;
 				var	nowTimes = Math.floor(parseInt("{{ $config->remaining_time / 3600 }}")) + ':' + parseInt("{{ ($config->remaining_time / 60) % 60 }}") + ':' + parseInt("{{ $config->remaining_time % 60 }}");
-
 
 				var config = {
 					'id': '{{ $config->id }}',
