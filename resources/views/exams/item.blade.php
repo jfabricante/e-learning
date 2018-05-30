@@ -122,7 +122,7 @@
 														</span>
 													</div>
 
-													@if($config->status)
+													@if($config->status && isset($entity->examAnswer->user_exam_answer))
 														@if($entity->questionBank->answer == $entity->examAnswer->user_exam_answer)
 															@if($row->choice == $entity->examAnswer->user_exam_answer)
 																<i class="fa fa-2x fa-check icon__state icon__state-check"></i>
@@ -137,6 +137,8 @@
 															@else
 																<i class="icon__placeholder"></i>
 															@endif
+														@else
+															<i class="icon__placeholder"></i>
 														@endif
 													@endif
 												</div>
