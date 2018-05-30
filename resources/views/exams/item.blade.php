@@ -48,6 +48,22 @@
 		.questions {
 			min-height: 350px !important;
 		}
+
+		i.icon__state {
+			padding: 10px;
+		}
+
+		i.icon__state-check {
+			color: #2ca189;
+		}
+
+		i.icon__state-times {
+			color: #f22d4e;
+		}
+
+		i.icon__placeholder {
+			width: 33px;
+		}
 	</style>
 @endsection
 
