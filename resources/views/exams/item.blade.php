@@ -121,6 +121,24 @@
 															</label>
 														</span>
 													</div>
+
+													@if($config->status)
+														@if($entity->questionBank->answer == $entity->examAnswer->user_exam_answer)
+															@if($row->choice == $entity->examAnswer->user_exam_answer)
+																<i class="fa fa-2x fa-check icon__state icon__state-check"></i>
+															@else
+																<i class="icon__placeholder"></i>
+															@endif
+														@elseif($entity->questionBank->answer != $entity->examAnswer->user_exam_answer)
+															@if($row->choice == $entity->questionBank->answer)
+																<i class="fa fa-2x fa-check icon__state icon__state-check"></i>
+															@elseif(($row->choice == $entity->examAnswer->user_exam_answer) && ($entity->questionBank->answer != $entity->examAnswer->user_exam_answer))
+																<i class="fa fa-2x fa-times icon__state icon__state-times"></i>
+															@else
+																<i class="icon__placeholder"></i>
+															@endif
+														@endif
+													@endif
 												</div>
 											</li>
 										@endforeach
